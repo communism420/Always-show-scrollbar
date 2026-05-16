@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Always show scrollbar Options</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="brand">
+          <img src="../logo.png" alt="" width="48" height="48">
+          <div>
+            <p class="eyebrow" data-i18n="domainFilter">Domain filter</p>
+            <h1 data-i18n="brandName">Always show scrollbar</h1>
+            <p class="lede" data-i18n="lede">Choose where persistent page scrollbars should be enabled.</p>
+          </div>
+        </div>
+        <div class="hero-controls">
+          <label class="language-control" for="languageSelect">
+            <span data-i18n="languageLabel">Interface language</span>
+            <select id="languageSelect"></select>
+          </label>
+          <div class="summary">
+            <span data-i18n="activeRules">Active rules</span>
+            <strong id="ruleCount">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="composer" aria-labelledby="add-title">
+        <div>
+          <h2 id="add-title" data-i18n="addTitle">Add a domain rule</h2>
+          <p data-i18n="addHelp">Enter a domain, wildcard, or special rule.</p>
+        </div>
+
+        <form id="addForm" class="add-form">
+          <label class="sr-only" for="siteInput" data-i18n="domainInputLabel">Domain or wildcard</label>
+          <input id="siteInput" type="text" autocomplete="off" spellcheck="false" placeholder="example.com, *.example.com, file://, or *" data-i18n-placeholder="domainInputPlaceholder">
+          <button class="primary-button" type="submit" data-i18n="addRule">Add rule</button>
+        </form>
+
+        <div class="quick-rules" aria-label="Quick rules" data-i18n-label="quickRulesLabel">
+          <button class="quick-rule" type="button" data-example="*" data-i18n="allSites">All sites</button>
+          <button class="quick-rule" type="button" data-example="file://" data-i18n="localFiles">Local files</button>
+          <button class="quick-rule" type="button" data-example="chatgpt.com">chatgpt.com</button>
+          <button class="quick-rule" type="button" data-example="*.example.com" data-i18n="wildcard">Wildcard</button>
+        </div>
+      </section>
+
+      <section class="rules-panel" aria-labelledby="sites-title">
+        <div class="rules-header">
+          <div>
+            <h2 id="sites-title" data-i18n="enabledSites">Enabled sites</h2>
+            <p data-i18n="enabledSitesHelp">Rules are matched against the current page before the content script applies scrollbar fixes.</p>
+          </div>
+          <button id="resetAll" class="secondary-button" type="button" data-i18n="enableAllSites">Enable all sites</button>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <p id="emptyState" class="empty-state" hidden data-i18n="emptyState">No enabled domains yet. Add one above or enable all sites.</p>
+        <ul id="siteList" class="site-list" aria-label="Enabled site rules" data-i18n-label="enabledSiteRulesLabel"></ul>
+      </section>
+    </main>
+
+    <script src="../src/site-rules.js"></script>
+    <script src="../src/i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

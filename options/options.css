@@ -1,0 +1,429 @@
+:root {
+  color-scheme: light dark;
+  --background: #f4f6f8;
+  --surface: #ffffff;
+  --surface-soft: #f9fafb;
+  --text: #111827;
+  --muted: #667085;
+  --border: #d0d5dd;
+  --border-strong: #98a2b3;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --success: #047857;
+  --success-soft: #ecfdf3;
+  --warning: #b54708;
+  --warning-soft: #fffaeb;
+  --danger: #b42318;
+  --danger-soft: #fef3f2;
+  --focus: #84caff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111317;
+    --surface: #1d2026;
+    --surface-soft: #171a1f;
+    --text: #f9fafb;
+    --muted: #a4a7ae;
+    --border: #353a45;
+    --border-strong: #555e6d;
+    --primary: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-soft: #172033;
+    --success: #6ee7b7;
+    --success-soft: #10251d;
+    --warning: #fdb022;
+    --warning-soft: #2b2112;
+    --danger: #f97066;
+    --danger-soft: #331916;
+    --focus: #53b1fd;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 520px;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.page {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand img {
+  flex: 0 0 auto;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lede,
+.composer p,
+.rules-header p,
+.rule-description {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.summary {
+  min-width: 132px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: right;
+}
+
+.hero-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.language-control {
+  min-width: 210px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.language-control span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.language-control select {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.summary strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.composer,
+.rules-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.composer {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.add-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 11px;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+select:hover,
+input:hover {
+  border-color: var(--border-strong);
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.quick-rule {
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: var(--primary-hover);
+}
+
+.secondary-button,
+.quick-rule {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.secondary-button:hover,
+.quick-rule:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.danger-button {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.danger-button:hover {
+  border-color: var(--danger);
+}
+
+.quick-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-rule {
+  min-height: 34px;
+  padding: 6px 11px;
+  color: var(--muted);
+}
+
+.rules-panel {
+  overflow: hidden;
+}
+
+.rules-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.status {
+  min-height: 22px;
+  padding: 10px 20px 0;
+  color: var(--muted);
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+.empty-state {
+  margin: 0;
+  padding: 22px 20px;
+  color: var(--muted);
+}
+
+.site-list {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.site-row:first-child {
+  border-top: 0;
+}
+
+.rule-main {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.rule-badge {
+  justify-self: start;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.rule-badge.all {
+  border-color: color-mix(in srgb, var(--success) 45%, var(--border));
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.rule-badge.local,
+.rule-badge.wildcard {
+  border-color: color-mix(in srgb, var(--warning) 45%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.rule-copy {
+  min-width: 0;
+}
+
+.rule-description {
+  font-size: 12px;
+}
+
+.rule-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.rule-actions .secondary-button,
+.rule-actions .danger-button {
+  min-width: 80px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 680px) {
+  body {
+    min-width: 320px;
+  }
+
+  .page {
+    padding: 20px;
+  }
+
+  .hero,
+  .rules-header,
+  .site-row,
+  .rule-main {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .rules-header,
+  .site-row {
+    display: grid;
+  }
+
+  .summary {
+    text-align: left;
+  }
+
+  .hero-controls {
+    display: grid;
+  }
+
+  .language-control {
+    min-width: 0;
+  }
+
+  .add-form {
+    grid-template-columns: 1fr;
+  }
+
+  .rule-actions {
+    justify-content: stretch;
+  }
+
+  .rule-actions .secondary-button,
+  .rule-actions .danger-button {
+    flex: 1;
+  }
+}

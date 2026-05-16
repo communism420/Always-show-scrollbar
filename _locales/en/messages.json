@@ -1,0 +1,8 @@
+{
+  "extName": {
+    "message": "Always show scrollbar"
+  },
+  "extDescription": {
+    "message": "Keeps vertical and horizontal scrollbars visible on selected sites."
+  }
+}
