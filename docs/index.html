@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Always show scrollbar</title>
     <meta name="description" content="Privacy policy and extension information for Always show scrollbar.">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
       :root {
         color-scheme: light dark;
@@ -51,6 +52,13 @@
         background: var(--surface);
       }
 
+      .logo {
+        display: block;
+        width: 88px;
+        height: 88px;
+        margin-bottom: 18px;
+      }
+
       h1,
       p {
         margin: 0;
@@ -66,11 +74,17 @@
         color: var(--muted);
       }
 
-      a {
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .button {
         display: inline-flex;
         align-items: center;
         min-height: 42px;
-        margin-top: 24px;
         border-radius: 7px;
         padding: 9px 14px;
         background: var(--primary);
@@ -79,7 +93,13 @@
         text-decoration: none;
       }
 
-      a:focus-visible {
+      .button.secondary {
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
+      }
+
+      .button:focus-visible {
         outline: 3px solid color-mix(in srgb, var(--primary) 45%, transparent);
         outline-offset: 3px;
       }
@@ -88,10 +108,14 @@
   <body>
     <main>
       <section class="panel" aria-labelledby="title">
+        <img class="logo" src="logo.png" alt="" width="88" height="88">
         <h1 id="title">Always show scrollbar</h1>
         <p>Privacy policy, extension permission details, and open-source licensing information for the Chrome Web Store listing.</p>
         <p>Always show scrollbar is fully open source under the MIT License.</p>
-        <a href="privacy-policy.html">Open privacy policy</a>
+        <div class="actions">
+          <a class="button" href="privacy-policy.html">Open privacy policy</a>
+          <a class="button secondary" href="https://github.com/communism420/Always-show-scrollbar" rel="noopener">Source code</a>
+        </div>
       </section>
     </main>
   </body>
